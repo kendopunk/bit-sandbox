@@ -1,0 +1,6 @@
+node_modules/
+*.d.ts
+__tests__
+components/**/*.test.tsx
+lib/**/*.test.ts
+src/reportWebVitals.ts
