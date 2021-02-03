@@ -1,10 +1,10 @@
-# bit-lib
+# bit-sandbox
 
 Bit.dev component and utility file library bootstrapped with create-react-app (Typescript) and [Storybook](https://storybook.js.org/)
 
 ## Getting Started
 
-We are using `yarn` as the default package manager for this application. Please do not use `npm`.
+I use `yarn` as the default package manager for this application. Please do not use `npm`.
 
 ```
 // install dependencies
@@ -12,6 +12,12 @@ $> yarn
 
 // start development server
 $> yarn dev
+```
+
+## Running Storybook
+
+```
+$> yarn storybook
 ```
 
 ## Building and Exporting a Component for bit.dev
@@ -32,12 +38,6 @@ $> bit add src/components/buttons/MyButton (id will be "my-button")
 $> bit build my-button
 $> bit tag my-button 0.0.1
 $> bit export [username].[collection]
-```
-
-## Running Storybook
-
-```
-$> yarn storybook
 ```
 
 ## Running the Linter
