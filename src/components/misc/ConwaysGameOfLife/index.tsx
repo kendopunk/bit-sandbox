@@ -101,6 +101,11 @@ const ConwayGOL: React.FC<ConwaysGameOfLifeProps> = ({
   })
   const { gameOn, livingCells } = state
 
+  /**
+   * @function
+   * Handling the preselection of living cells
+   * @param evt
+   */
   const precheckLivingCell = (evt: Event & { target: Element }) => {
     if (!gameOn) {
       const id = evt.target.id
@@ -145,6 +150,10 @@ const ConwayGOL: React.FC<ConwaysGameOfLifeProps> = ({
     }
   }
 
+  /**
+   * @function
+   * This is called in useEffect() on a setInterval()
+   */
   const regenerateBoard = () => {
     if (gameOn) {
       const newlivingCells: string[] = []
