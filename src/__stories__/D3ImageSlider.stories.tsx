@@ -54,7 +54,9 @@ storiesOf('D3ImageSlider', module)
           <InfoChild>
             <b>Current Value:</b>
           </InfoChild>
-          <InfoChild>{currentValue}</InfoChild>
+          <InfoChild>
+            <span style={{ color: '#00f' }}>{currentValue}</span>
+          </InfoChild>
         </Info>
         <Info>
           <div>RIP EVH</div>
@@ -72,7 +74,7 @@ storiesOf('D3ImageSlider', module)
 
 storiesOf('D3ImageSlider', module)
   .addDecorator(withKnobs)
-  .add('Goose Island IPA', () => {
+  .add('Goose Island', () => {
     const startingValue = 6
 
     const [currentValue, setCurrentValue] = useState(startingValue)
@@ -102,7 +104,12 @@ storiesOf('D3ImageSlider', module)
           <InfoChild>
             <b>Current Value:</b>
           </InfoChild>
-          <InfoChild>{currentValue.toFixed(2)}% ABV</InfoChild>
+          <InfoChild>
+            <span style={{ color: '#3e8a22' }}>{currentValue.toFixed(2)}% ABV</span>
+          </InfoChild>
+        </Info>
+        <Info>
+          <div>My favorite IPA...</div>
         </Info>
         <D3ImageSlider
           trackColorEast={color('East Track Color', '#cccccc')}

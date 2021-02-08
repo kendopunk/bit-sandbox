@@ -35,8 +35,8 @@ const D3ImageSlider: React.FC<D3ImageSliderProps> = ({
   min,
   max,
   startingValue,
-  trackColorEast = '#eee',
-  trackColorWest = '#000'
+  trackColorEast = '#eeeeee',
+  trackColorWest = '#000000'
 }: D3ImageSliderProps): JSX.Element => {
   const svgRef = useRef(null)
   const windowDimensions = useWindowResize(500)
