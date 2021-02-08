@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { drag, Selection, scaleLinear, select } from 'd3'
 
 import useWindowResize from './useWindowResize'
-import iconVH from 'components/sliders/D3ImageSlider/frankenstein.png'
+import iconVH from './frankenstein.png'
 
 type D3ImageSliderProps = {
   canvasHeight: string | number

@@ -1,4 +1,4 @@
-# &lt;D3ImageSlider&gt;
+# D3ImageSlider
 
 A range slider built with React, Typescript and D3.js.
 
