@@ -7,13 +7,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { drag, Selection, scaleLinear, select } from 'd3'
 
 import useWindowResize from './useWindowResize'
+import iconVH from './frankenstein.png'
 
 type D3ImageSliderProps = {
   canvasHeight: string | number
   dragHandler: (value: number) => any
-  image: string
-  imageHeight: string | number
-  imageWidth: string | number
+  image?: string
+  imageHeight?: string | number
+  imageWidth?: string | number
   min: string | number
   max: string | number
   startingValue: string | number
@@ -28,14 +29,14 @@ type D3ImageSliderState = {
 const D3ImageSlider: React.FC<D3ImageSliderProps> = ({
   canvasHeight,
   dragHandler,
-  image,
-  imageHeight,
-  imageWidth,
+  image = iconVH,
+  imageHeight = '40',
+  imageWidth = '40',
   min,
   max,
   startingValue,
-  trackColorEast = '#eee',
-  trackColorWest = '#000'
+  trackColorEast = '#eeeeee',
+  trackColorWest = '#000000'
 }: D3ImageSliderProps): JSX.Element => {
   const svgRef = useRef(null)
   const windowDimensions = useWindowResize(500)
@@ -213,6 +214,15 @@ const D3ImageSlider: React.FC<D3ImageSliderProps> = ({
     setDragConfig(svg)
     initialRender(svg)
   }, [])
+
+  /**
+   * run on track color changes
+   */
+  useEffect(() => {
+    const svg: Selection<Element, any, HTMLElement, any> = select(svgRef.current)
+    svg.select('rect.east').style('fill', trackColorEast)
+    svg.select('rect.west').style('fill', trackColorWest)
+  }, [trackColorEast, trackColorWest])
 
   /**
    * run on window size change

@@ -14,5 +14,37 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "kendopunk.sliders/d3-image-slider@0.0.2": {
+        "files": [
+            {
+                "relativePath": "docs/D3ImageSlider.md",
+                "test": false,
+                "name": "D3ImageSlider.md"
+            },
+            {
+                "relativePath": "src/components/sliders/D3ImageSlider/frankenstein.png",
+                "test": false,
+                "name": "frankenstein.png"
+            },
+            {
+                "relativePath": "src/components/sliders/D3ImageSlider/goose_island.png",
+                "test": false,
+                "name": "goose_island.png"
+            },
+            {
+                "relativePath": "src/components/sliders/D3ImageSlider/index.tsx",
+                "test": false,
+                "name": "index.tsx"
+            },
+            {
+                "relativePath": "src/components/sliders/D3ImageSlider/useWindowResize.ts",
+                "test": false,
+                "name": "useWindowResize.ts"
+            }
+        ],
+        "mainFile": "src/components/sliders/D3ImageSlider/index.tsx",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.8.8"
 }

@@ -4,71 +4,120 @@
  */
 import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
+import { withKnobs, color } from '@storybook/addon-knobs'
+import styled from 'styled-components'
 import '@fontsource/poppins'
 
 import D3ImageSlider from 'components/sliders/D3ImageSlider/'
-import iconVanHalen from 'components/sliders/D3ImageSlider/vanhalen.png'
-import iconUA from 'components/sliders/D3ImageSlider/ua.png'
+import iconGoose from 'components/sliders/D3ImageSlider/goose_island.png'
 
-storiesOf('D3ImageSlider', module).add('Under Armour', () => {
-  const startingValue = '50'
+const Wrapper = styled.div`
+  font-family: 'Poppins', 'Helvetica', sans-serif;
+  font-size: 13px;
+`
 
-  const [currentValue, setCurrentValue] = useState(+startingValue)
+const Info = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+`
 
-  const props = {
-    canvasHeight: '50',
-    dragHandler: (val: number) => setCurrentValue(+val),
-    image: iconUA,
-    imageHeight: '39',
-    imageWidth: '50',
-    min: '0',
-    max: '100',
-    startingValue,
-    trackColorEast: '#26f80f',
-    trackColorWest: '#000'
-  }
+const InfoChild = styled.div`
+  margin-right: 10px;
+`
 
-  return (
-    <div style={{ fontFamily: 'Poppins', fontSize: '13px' }}>
-      <div style={{ marginBottom: '10px' }}>
-        Min: {props.min} / Max: {props.max}
-      </div>
-      <div style={{ marginBottom: '10px' }}>Current Value: {currentValue}</div>
-      <D3ImageSlider {...props} />
-    </div>
-  )
+storiesOf('D3ImageSlider', module)
+  .addDecorator(withKnobs)
+  .add('Van Halen', () => {
+    const startingValue = '1984'
 
-  return
-})
+    const [currentValue, setCurrentValue] = useState(+startingValue)
 
-storiesOf('D3ImageSlider', module).add('Van Halen', () => {
-  const startingValue = '1984'
+    const props = {
+      canvasHeight: '50',
+      dragHandler: (val: number) => setCurrentValue(+val | 0),
+      min: '1900',
+      max: '2000',
+      startingValue
+    }
 
-  const [currentValue, setCurrentValue] = useState(+startingValue)
+    return (
+      <Wrapper>
+        <Info>
+          <InfoChild>
+            <b>Min:</b>
+          </InfoChild>
+          <InfoChild>{props.min}</InfoChild>
+          <InfoChild>
+            <b>Max:</b>
+          </InfoChild>
+          <InfoChild>{props.max}</InfoChild>
+          <InfoChild>
+            <b>Current Value:</b>
+          </InfoChild>
+          <InfoChild>
+            <span style={{ color: '#00f' }}>{currentValue}</span>
+          </InfoChild>
+        </Info>
+        <Info>
+          <div>RIP EVH</div>
+        </Info>
+        <D3ImageSlider
+          trackColorEast={color('East Track Color', '#333333')}
+          trackColorWest={color('West Track Color', '#fb0006')}
+          {...props}
+        />
+      </Wrapper>
+    )
 
-  const props = {
-    canvasHeight: '50',
-    dragHandler: (val: number) => setCurrentValue(+val),
-    image: iconVanHalen,
-    imageHeight: '24',
-    imageWidth: '30',
-    min: '1900',
-    max: '2000',
-    startingValue,
-    trackColorEast: '#333',
-    trackColorWest: '#fb0006'
-  }
+    return
+  })
 
-  return (
-    <div style={{ fontFamily: 'Poppins', fontSize: '13px' }}>
-      <div style={{ marginBottom: '10px' }}>
-        Min: {props.min} / Max: {props.max}
-      </div>
-      <div style={{ marginBottom: '10px' }}>Current Value: {currentValue}</div>
-      <div style={{ marginBottom: '10px' }}>R.I.P E.V.H</div>
-      <D3ImageSlider {...props} />
-    </div>
-  )
+storiesOf('D3ImageSlider', module)
+  .addDecorator(withKnobs)
+  .add('Goose Island', () => {
+    const startingValue = 6
 
-  return
-})
+    const [currentValue, setCurrentValue] = useState(startingValue)
+
+    const props = {
+      canvasHeight: '50',
+      dragHandler: (val: number) => setCurrentValue(+val),
+      image: iconGoose,
+      imageHeight: '40',
+      imageWidth: '40',
+      min: '0',
+      max: '10',
+      startingValue
+    }
+
+    return (
+      <Wrapper>
+        <Info>
+          <InfoChild>
+            <b>Min:</b>
+          </InfoChild>
+          <InfoChild>{props.min}</InfoChild>
+          <InfoChild>
+            <b>Max:</b>
+          </InfoChild>
+          <InfoChild>{props.max}</InfoChild>
+          <InfoChild>
+            <b>Current Value:</b>
+          </InfoChild>
+          <InfoChild>
+            <span style={{ color: '#3e8a22' }}>{currentValue.toFixed(2)}% ABV</span>
+          </InfoChild>
+        </Info>
+        <Info>
+          <div>My favorite IPA...</div>
+        </Info>
+        <D3ImageSlider
+          trackColorEast={color('East Track Color', '#cccccc')}
+          trackColorWest={color('West Track Color', '#3e8a22')}
+          {...props}
+        />
+      </Wrapper>
+    )
+
+    return
+  })
